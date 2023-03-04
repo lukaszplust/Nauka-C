@@ -5,6 +5,7 @@
 Napisz program, który utworzy listę dwukierunkową i umieści w niej elementy typu float.
 Program powinien wyprintować wszystkie elementy w kolejności od pierwszego do ostatniego i odwrotnie.*/
 
+//na stercie
 struct Node {
 	float x;
 	struct Node* next;
@@ -12,12 +13,12 @@ struct Node {
 };
 
 struct list {
-	struct Node* head;
-	struct Node* tail;
+	struct Node* head;//wskaznik na 1 element listy
+	struct Node* tail;//wskaznik na ostatni element listy
 };
 
-void insert(struct list* lista, float wartosc){
-	struct Node* new = malloc(sizeof(struct Node));
+void insert(struct list* lista, float wartosc){//struct list* lista = lista = wskaznik na strukture list
+	struct Node* new = malloc(sizeof(struct Node));//adres na stercie 
 	if (lista->head == NULL) {
 		new->x = wartosc;
 		new->previous = NULL;
@@ -77,6 +78,6 @@ int main() {
 	printf("From front:\n");
 	print_from_front(lista->head);
 
-	//free(lista);
+	free(lista);
 	return 0;
 }
